@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <title>Student Information Form</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-controller="studentCtrl">
+  <h1>Student Information Form</h1>
+  
+  <!-- Form to collect student information -->
+  <form>
+    <label for="name">Name:</label>
+    <input type="text" id="name" ng-model="student.name" required><br><br>
+    
+    <label for="rollno">Roll No:</label>
+    <input type="text" id="rollno" ng-model="student.rollNo" required><br><br>
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" ng-model="student.email" required><br><br>
+    
+    <label for="phone">Phone:</label>
+    <input type="tel" id="phone" ng-model="student.phone" required><br><br>
+    
+    <button ng-click="submitForm()">Submit</button>
+  </form>
+  
+  <!-- Display the collected information -->
+  <div ng-if="showInfo">
+    <h2>Student Information:</h2>
+    <p>Name: {{student.name}}</p>
+    <p>Roll No: {{student.rollNo}}</p>
+    <p>Email: {{student.email}}</p>
+    <p>Phone: {{student.phone}}</p>
+  </div>
+</div>
+
+<script>
+  var app = angular.module('myApp', []);
+  app.controller('studentCtrl', function($scope) {
+    $scope.student = {};
+    $scope.showInfo = false;
+    
+    $scope.submitForm = function() {
+      // Validation logic can be added here
+      $scope.showInfo = true;
+    };
+  });
+</script>
+
+</body>
+</html>
