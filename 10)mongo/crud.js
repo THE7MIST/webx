@@ -1,6 +1,7 @@
 // Import the MongoClient from the mongodb package
 const { MongoClient } = require('mongodb');
 
+
 // Connection URI and Database Name
 const uri = 'mongodb://localhost:27017';
 const dbName = 'mydatabase';
